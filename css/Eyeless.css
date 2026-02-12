@@ -1,0 +1,39 @@
+/*Estilos Base (Fondo Oscuro y Fuentes)*/
+body {
+    background-color: #0a0a0a; /* Negro casi puro */
+    color: #e0e0e0; /* Texto gris claro para leer */
+    font-family: 'Courier New', Courier, monospace; /* Estilo máquina de escribir */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Títulos inquetantes */
+h1, h2, h3 {
+    font-family: 'Creepster', cursive; /* Necesitas importar esta fuente de Google Fonts */
+    color: #b30000; /* Rojo sangre */
+    text-shadow: 2px 2px 4px #000;
+}
+
+/*Efecto de Texto Parpadeante (Flickering)*/
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ff0000;
+    }
+    20%, 22%, 24%, 55% {
+        opacity: 0.5;
+        text-shadow: none;
+    }
+}
+
+.creepy-text {
+    animation: flicker 3s infinite;
+    color: #912914;
+}
+
+/*Filtro de "Pantalla Embrujada" (Negativo/Distorsión)
+*/
+.horror-scene {
+    filter: grayscale(0.5) sepia(0.3) contrast(1.2);
+    /* O más extremo: invert(1) brightness(0.8) */
+}
