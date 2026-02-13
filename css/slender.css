@@ -36,25 +36,27 @@ html, body, .fondo {
   }
 
   @keyframes myAnimation {
-    0%{
-      background-color: #000000;
+    0% {
+        opacity: 1;
     }
     25%{
-      
+        opacity: 0;
     }
-
     50%{
-      background-color: #000000;
+        opacity: 1;
     }
-
+    75%{
+        opacity: 0;
+    }
     100%{
-
+        opacity: 1;
     }
 }
 
-body, .contenido {
+body {
     animation-name: "myAnimation";
     animation-duration: 8s;
+    animation-timing-function: steps(0.5, end);
 }
 
 body::before {
