@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+<!--imagen normal -->
+<img src="css/Captura de pantalla 2026-02-11 185619.jpg"  alt="cap" class="img-left">
+
+<!--imagen jumpscare -->
+<img src="css/smile.jpg" id="jumpscare" alt="jumpscare">
+
+
+<!--Texto/no se pa que jala solo me dijeron que lo pusiera -->
+<section>
+    <h1 id="texto"></h1>
+</section>
+
+<!--pa que el texto se escriba poco a poco -->
+<div class="screen-flicker"></div>
+
+<style>
+#texto {
+    position: relative;
+    left: 650px; /* mueve a la derecha */
+}
+</style>
+
+<style>
+.contenedor-derecha {
+    position: absolute;
+    top: 150px;      /* ajusta vertical */
+    right: 120px;    /* ajusta horizontal */
+    width: 650px;    /* ancho real del cuadro azul */
+}
+
+.maquina-escribir {
+    margin: 0;
+    text-align: right;
+    word-wrap: break-word;
+    white-space: normal;
+}
+</style>
+
+
+<div class="contenedor-derecha">
+  <p class="maquina-escribir">They say that the first time someone sees the image of Smile Dog, it’s already too late.
+
+It doesn’t show up just anywhere. It’s not something you casually find while scrolling online like an old meme. It arrives when you least expect it. An attachment with no subject. A message with no sender. A folder you don’t remember downloading. And inside, a single image.
+
+The photograph shows a gray-furred dog, lit by the harsh flash of a camera in a dark room. It looks like a husky, sitting in front of a background so black it’s impossible to make out. But what no one ever forgets are its eyes. They don’t reflect light like a normal animal’s. They shine. Not with life… but with something else. Something that feels aware that you’re looking at it.
+
+And then there’s the smile.
+
+It isn’t natural. It isn’t the innocent grin of a dog panting. It’s human. Wide. Exaggerated. Full of teeth that look too defined. Too perfect. Too deliberate. As if it’s enjoying the exact moment your gaze meets its own.
+
+People who claim to have seen the image say nothing happens at first. They close the file. They laugh it off. They assume it’s just a strange edit. But that night, their dreams change. They dream of the same dark room. The same endless black background. And at the end of a hallway, barely visible, the dog watches them.
+
+Each night, it gets closer.
+
+Some say they begin to hear faint scratching inside the walls. Others claim their computer turns on by itself at 3:00 a.m., the image filling the screen. No one can delete it completely. It always comes back. It’s always there, even when the file is gone.
+
+The worst part isn’t seeing it.
+
+The worst part is the message that follows. A short sentence in plain letters: “Spread the word.”
+
+Those who receive it describe a constant pressure in their head, like something pushing from the inside. Sleep becomes impossible. Anxiety grows heavier. And eventually, many do the only thing that seems to make the feeling fade: they send the image to someone else.
+
+And then the cycle continues.
+
+Some stories say Smile Dog isn’t just a picture, but something that lives behind the screen. Something that needs to be seen in order to exist. Something that smiles because it knows that, sooner or later, everyone looks.
+
+If you ever receive a strange file with a single image and a name you don’t recognize… think twice before opening it.
+
+Because some smiles are not meant to smile back at you. puedes hacer un poco mas peque el texto</p>
+</div>
+
+
+
+
+
+
+<script>
+const texto ="smile.dog ";
+let elemento;
+let i = 0;
+
+window.onload = () => {
+    elemento = document.getElementById("texto");
+    escribir();
+};
+
+function escribir() {
+    if (i < texto.length) {
+        elemento.textContent += texto.charAt(i);
+        i++;
+        setTimeout(escribir, 80);
+    } else {
+        jumpscare();
+    }
+}
+
+function jumpscare() {
+    const img = document.getElementById("jumpscare");
+
+    img.classList.add("active");
+    img.style.opacity = 1;
+
+    // quitar después de 0.6s
+    setTimeout(() => {
+        img.style.opacity = 0;
+        img.classList.remove("active");
+    }, 600);
+}
+
+setInterval(() => {
+    if (Math.random() > 0.6) {
+        jumpscare();
+    }
+}, 60000);
+
+function glitchShake() {
+    document.body.classList.add("shake");
+    setTimeout(() => {
+        document.body.classList.remove("shake");
+    }, 500);
+}
+setInterval(() => {
+    const flicker = document.querySelector(".screen-flicker");
+    if (Math.random() > 0.85) { 
+        flicker.style.opacity = 1;
+        setTimeout(() => flicker.style.opacity = 0, 100);
+    }
+}, 200);
+
+</script>
+<!--codigo que no entiendo-->
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+/*neon del texto*/
+.maquina-escribir {
+    color: #f30d0d;
+    text-shadow:
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000;
+}
+
+/*contenedor posiciona todo a la derecha */
+.contenedor-derecha {
+  display: flex;
+  justify-content: flex-end;
+  width:100%;
+  left: 58;
+}
+
+/*estilo de máquina de escribir */
+.maquina-escribir {
+  font-family: monospace;
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  letter-spacing: .15em;
+  margin: 0;
+  
+  width: 0; 
+  animation: 
+    typing 3.5s steps(30, end) forwards,
+    blink-caret .75s step-end infinite;
+    
+}
+
+@keyframes typing {
+  from { width: '30' }
+  to { width: 300% } 
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+
+/*PARPADEO*/
+.screen-flicker {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    animation: slowFlicker 7.2s infinite, fastBurst 5s infinite;
+}
+/* Parpadeo lento */
+@keyframes slowFlicker {
+    0%, 85%, 100% { opacity: 0; }
+    87% { opacity: 0.3; }
+    89% { opacity: 0; }
+    91% { opacity: 0.5; }
+    93% { opacity: 0; }
+}
+
+/*parpadeo rapido) */
+@keyframes fastBurst {
+    0%, 90%, 100% { opacity: 0; }
+    91% { opacity: 1; }
+    91.2% { opacity: 0; }
+    91.4% { opacity: 1; }
+    91.6% { opacity: 0; }
+    91.8% { opacity: 1; }
+    92% { opacity: 0; }
+}
+
+
+/*coso pa la fuente*/
+@font-face {
+  font-family: "vhs";
+  src: url('fonts/easvhs.woff2') format('woff2');
+  front-weight: normal;
+  front-style: normal;
+}
+/*texto neon*/
+#texto {
+    font-family: "vhs", monospace;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px red;
+}
+/*color del texto*/
+body {
+  color: #d40e0e;
+}
+
+.title {
+  font-family: 'MiFuenteCustom', sans-serif;
+  margin: 0;
+  font-weight: 1000;
+  font-size: 2.5rem;
+  color: var(--light-color);
+}
+/*posicion foto*/
+.img-left {
+    position: absolute; 
+    top: 55%; /* centro pa bajo */
+    transform: translateY(-50%);
+    width: 520px; /* tamaño imagen */
+    left: 100px; /*mover derecha*/
+    z-index: 0;
+}
+
+/*fondo de la pagina */
+body {
+  background-image: url("fondo.jpg"); 
+  background-size: cover;               
+  background-position: center;           
+  background-repeat: no-repeat;         
+  background-attachment: fixed;         
+}
+
+:root {
+ --dark-color:#191f1d
+
+}
+
+/*vibracion jumpscare*/
+
+#pantalla.shake {
+  animation: shake 0.05s infinite;
+}
+
+#texto {
+    font-family: "vhs", monospace;
+    font-size: 50px;
+    color: red;
+    letter-spacing: 9px;
+    text-shadow: 0 0 15px red;
+    z-index: 10;
+  
+    
+}
+
+/*JUMPSCARE*/
+#jumpscare {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 9999;
+  pointer-events: none;
+  transform: scale(1);
+}
+#jumpscare.active {
+  animation: jumpFlicker 0.6s forwards, shake 0.05s infinite;
+}
+@keyframes jumpFlicker {
+  0%   { opacity: 1; }
+  10%  { opacity: 0; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  40%  { opacity: 1; }
+
+  /* empieza rápido */
+  50%  { opacity: 0; }
+  55%  { opacity: 1; }
+  60%  { opacity: 0; }
+  65%  { opacity: 1; }
+  70%  { opacity: 0; }
+  75%  { opacity: 1; }
+  80%  { opacity: 0; }
+  85%  { opacity: 1; }
+  90%  { opacity: 0; }
+  95%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* MAS temblor */
+@keyframes shake {
+  0% { transform: translate(0,0) scale(1.05); }
+  25% { transform: translate(6px, -4px) scale(1.05); }
+  50% { transform: translate(-6px, 4px) scale(1.05); }
+  75% { transform: translate(4px, 6px) scale(1.05); }
+  100% { transform: translate(0,0) scale(1.05); }
+}
+
+/*vhs efecto DEL DEIVID*/
+:root {
+  --dark-color: #191f1d;
+  --mid-dark: #555a57;
+  --light-color: #ece0c8;
+  --mid-light: #949993;
+  --shadow: #0005;
+  --linear-rainbow: linear-gradient(
+    to right,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a
+  );
+  --circle-rainbow: radial-gradient(
+    circle at left top,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a
+  );
+  --noise-texture: url(https://i.gyazo.com/ac26366e538851a5c569ff648e99b7fd4.png);
+  --gif-texture: url(https://64.media.tumblr.com/da60c13b478dda09ab90c27e880983b8/tumblr_nd4pwdPKdc1tun3l0o1_1280.gifv);
+}
+  /* Capa de ruido encima de todo */
+body::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--noise-texture);
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Capa del GIF encima del fondo pero bajo el ruido */
+  body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--gif-texture);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: screen;
+    opacity: 0.8;   /* sube o baja (0.3–0.8) para que se vea más o menos */
+    pointer-events: none;
+    z-index: 0;
+  }
+
+
+  /*no me acuerdo que hace*/
+.glitch-img::before,
+.glitch-img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    mix-blend-mode: screen;
+    opacity: 0.6;
+}
+
+.glitch-img::before {
+    transform: translate(-2px,0);
+    filter: hue-rotate(90deg);
+}
+
+.glitch-img::after {
+    transform: translate(2px,0);
+    filter: hue-rotate(-90deg);
+}
+
+
+
