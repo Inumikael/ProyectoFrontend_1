@@ -1,5 +1,102 @@
-@import "compass/css3";
+:root{
+  --dark-color: #191f1d;
+  --mid-dark: #555a57;
+  --light-color: #ece0c8;
+  --mid-light: #949993;
+  --shadow: #0005;
+  --linear-rainbow: linear-gradient(
+    to right,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a
+  );
+  --circle-rainbow: radial-gradient(
+    circle at left top,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a
+  );
+  --noise-texture: url(https://i.gyazo.com/a26366e538851a5c569ff648e99b7fd4.png);
+  --gif-texture: url(https://64.media.tumblr.com/da60c13b478dda09ab90c27e880983b8/tumblr_nd4pwdPKdc1tun3l0o1_1280.gifv);
+}
 
+html, body, .fondo {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@keyframes spawn {
+    0% {
+      box-shadow: 0 0 0 var(--shadow);
+      opacity: 0;
+    }
+    100% {
+      box-shadow: 0 0 32px var(--shadow);
+      opacity: 1;
+    }
+  }
+
+  @keyframes myAnimation {
+    0%{
+      background-color: #000000;
+    }
+    25%{
+      
+    }
+
+    50%{
+      background-color: #000000;
+    }
+
+    100%{
+
+    }
+}
+
+body, .contenido {
+    animation-name: "myAnimation";
+    animation-duration: 8s;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--noise-texture);
+    background-repeat: repeat;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--gif-texture);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: screen;
+    opacity: 0.5;   
+    pointer-events: none;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  /* Importar fuentes  */
 @font-face {
     font-family: 'Easvhs';
     src: url('../fonts/easvhs.ttf') format('truetype');
@@ -37,8 +134,8 @@ h1{
 
 body {
     font-family: 'Easvhs', sans-serif;
-    background-color: var(--dark-color);
-    background-image: var(--noise-texture), var(--gif-texture), url('../Img/Fondo.jpeg');
+    background-color: #000000;
+    /* background-image: var(--noise-texture), var(--gif-texture), url('../Img/Fondo.jpeg'); */
     background-size: auto, cover, cover;
     background-position: center, center, center;
     background-repeat: repeat, no-repeat, no-repeat;
@@ -48,118 +145,127 @@ body {
   }
 
 .contenido{
+    animation: spawn 2s ease-in-out forwards;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-areas: "header1 header2 header3"
+                                                          "sidebar  main       main"
+                                                          ". footer footer ";
     font-family: 'Slender';
-    color: #191f1d;;
+    color: #000000;;
 }
 
-.imagen{
-    grid-column: 1 ;
-    grid-row: 2;
-    opacity: 1;
-    margin: 20px;
-    gap: 20px;
-    position: relative;
+.barraSuperior{
+    grid-area: header2;
+    margin: 5px;
+    gap: 5px;
+    align-self: center;
+    justify-self: center;
 }
 
 .texto{
     grid-column: 2;
     grid-row: 2;
-    margin: 50px;
-    position: relative;
-    gap: 20px;
-    border-color: #191f1d ;
-    border-style: solid;
-    background-color: #ede6bf;
+    margin: 10px;
+    gap: 10px;
+    border-style: double;
     text-align: center;
-    text
+    line-height: 0.7cm;
+    grid-area: main;
+    color: rgb(255, 255, 255);
+    align-self: center;
+    justify-self: center;
 }
 
-.barraSuperior{
-    grid-column: 2;
-    grid-row: 1;
-    margin: 20px;
-    gap: 20px;
+.text{
+    color: rgb(54, 117, 12);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
-.fondo{
-    animation: spawn 2s ease-in-out forwards;
-}
-:root, .fondo {
-  --dark-color: #191f1d;
-  --mid-dark: #555a57;
-  --light-color: #ece0c8;
-  --mid-light: #949993;
-  --shadow: #0005;
-  --linear-rainbow: linear-gradient(
-    to right,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a
-  );
-  --circle-rainbow: radial-gradient(
-    circle at left top,#ede6bf,#ecc947,#cb5a31,#6f5d79,#4e779a
-  );
-  --noise-texture: url(https://i.gyazo.com/a26366e538851a5c569ff648e99b7fd4.png);
-  --gif-texture: url(https://64.media.tumblr.com/da60c13b478dda09ab90c27e880983b8/tumblr_nd4pwdPKdc1tun3l0o1_1280.gifv);
+.imagen{
+    grid-column: 1 ;
+    grid-row: 2;
+    margin: 5px;
+    gap: 5px;
 }
 
-html, body, .fondo {
-  overflow-x: hidden;
-  box-sizing: border-box;
-  min-height: 100%;
+.imagen-exacta{
+    max-width: 400px;
+    opacity: 1;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+.imgR{
+    max-width: 50px;
+    border-color: red;
+    border-style: solid;
+    border-radius: 100px;
+    grid-area: header1s;
+    position: relative;
 }
 
-@keyframes spawn {
-    0% {
-      box-shadow: 0 0 0 var(--shadow);
-      opacity: 0;
-    }
-    100% {
-      box-shadow: 0 0 32px var(--shadow);
-      opacity: 1;
-    }
-  }
-
-.fondo::before {
-    content: "";
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+.footer{
+    position: relative;
     width: 100%;
-    height: 100%;
-    background-image: var(--noise-texture);
-    background-repeat: repeat;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .fondo::after {
-    content: "";
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-image: var(--gif-texture);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    mix-blend-mode: screen;
-    opacity: 0.5;   
-    pointer-events: none;
-    z-index: 0;
+    background: black;
+    max-height: 160px;
+    padding: 20px 50px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 0 auto;
-  }
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px 5px;
+    flex-wrap: wrap;
+}
+
+.icon-elem{
+    list-style: none;
+}
+
+.icon{
+    color: white;
+    font-size: 32px;
+    display: inline-block;
+    margin:0 10px;
+    transition: 0.5s;
+}
+
+.icon:hover{
+    transform: translateY(-10px);
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.menu{
+    list-style: none;
+}
+
+.menu-icon{
+    color: rgb(189, 46, 46);
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    margin: 5px 10px;
+    opacity: 0.75;
+    transition: 0.3s;
+}
+
+.menu-icon:hover{
+opacity: 1;
+}
