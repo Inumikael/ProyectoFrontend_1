@@ -1,4 +1,4 @@
-@import "compass/css3";
+
 
 @font-face {
     font-family: 'Easvhs';
@@ -180,3 +180,5 @@ html, body, .fondo {
     gap: 10px;              /* Espacio opcional entre imagen y texto */
     color: white;
 }
+
+
