@@ -1,39 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eyeless Jack</title>
 
+    <!-- Bootstrap 5 CDN (estilos) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-..." crossorigin="anonymous">
     <link rel="stylesheet" href="../css/Eyeless.css">
     <link rel="icono" type="image/jpg" sizes="32x32" href="/Img/EyelessJack_1.jpg">
     <link rel="icono" type="image/jpg" sizes="16x16" href="/Img/EyelessJack_2.jpg">
 
-        <style>
-            .eyeless-container{display:flex;align-items:center;justify-content:center;gap:1rem;max-width:1200px;margin:2rem auto;padding:1rem}
-            .eyeless-container .side-img{width:22%;max-width:260px;height:auto;object-fit:cover;display:block}
-            .eyeless-container .content{flex:1;text-align:center;padding:0 1rem}
-            .eyeless-container h1{margin-top:0}
-            @media (max-width:800px){
-                .eyeless-container{flex-direction:column}
-                .eyeless-container .side-img{width:60%;max-width:480px}
-            }
-        </style>
 </head>
+
 <body>
-    <div class="eyeless-container">
-        <img src="../Img/EyelessJack_1.jpg" alt="Eyeless Jack left" class="side-img">
-        <div class="content">
-            <h1>Eyeless Jack</h1>
-            <p>Eyeless Jack es una figura de la cultura de internet que se originó como una creepypasta, un tipo de historia de terror que se comparte en línea. La historia de Eyeless Jack describe a un ser misterioso y aterrador que se caracteriza por no tener ojos. Se dice que este ser aparece en la oscuridad y ataca a sus víctimas, a menudo robándoles los órganos internos.</p>
-            <p>La historia de Eyeless Jack ha ganado popularidad en la comunidad de creepypastas y ha sido adaptada en diversas formas, incluyendo fan art, videos y juegos. A pesar de su naturaleza ficticia, Eyeless Jack se ha convertido en un ícono del terror en línea y ha inspirado a muchos creadores de contenido a explorar su historia y características únicas.</p>
+    <!-- Navbar de Bootstrap: responsive, se colapsa en pantallas pequeñas -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Creepypastas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="./JeffTheKiller.html">Jeff</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Slenderman.html">Slender</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./prueba.html">Smile Dog</a></li>
+                </ul>
+            </div>
         </div>
-        <img src="../Img/EyelessJack_2.jpg" alt="Eyeless Jack right" class="side-img">
+    </nav>
+
+    <!-- Contenedor principal con orilla de Bootstrap -->
+    <div class="container my-4">
+        <div class="row align-items-center">
+            <!-- columna de imagen izquierda -->
+            <div class="col-lg-3 col-md-4 text-center mb-3">
+                <img src="../Img/EyelessJack_1.jpg" alt="Eyeless Jack left" class="img-fluid rounded">
+            </div>
+            <!-- columna de texto central -->
+            <div class="col-lg-6 col-md-8">
+                <div class="alert alert-danger alert-dismissible fade show"><!-- alerta de Bootstrap para advertencia -->
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button> <!-- botón para cerrar la alerta -->
+                    <strong>Peligro!</strong> Historia de terror, no apta para personas sensibles.
+                </div>
+                <h1 class="display-4">Eyeless Jack</h1> <button class="bg-danger text-white p-3 mt-2"
+                    data-bs-toggle="collapse" data-bs-target="#demo">Advertencia</button><!-- botón de Bootstrap para mostrar/ocultar información adicional -->
+                <div id="demo" class="collapse bg-danger text-dark p-3 mt-2">
+                    Le gusta comer órganos humanos!
+                </div>
+                <p>Eyeless Jack es una figura de la cultura de internet que se originó como una creepypasta, un tipo de
+                    historia de terror que se comparte en línea. La historia de Eyeless Jack describe a un ser
+                    misterioso y aterrador que se caracteriza por no tener ojos. Se dice que este ser aparece en la
+                    oscuridad y ataca a sus víctimas, a menudo robándoles los órganos internos.</p>
+                <p>La historia de Eyeless Jack ha ganado popularidad en la comunidad de creepypastas y ha sido adaptada
+                    en diversas formas, incluyendo fan art, videos y juegos. A pesar de su naturaleza ficticia, Eyeless
+                    Jack se ha convertido en un ícono del terror en línea y ha inspirado a muchos creadores de contenido
+                    a explorar su historia y características únicas.</p>
+                <!-- un botón de Bootstrap para navegar dentro de la página -->
+                <a href="#adicional" class="btn btn-primary bg-danger text-white">Leer más</a>
+            </div>
+            <!-- columna de imagen derecha -->
+            <div class="col-lg-3 col-md-4 text-center mb-3">
+                <img src="../Img/EyelessJack_2.jpg" alt="Eyeless Jack right" class="img-fluid rounded rounded-circle"> <!-- imagen con bordes redondeados y forma circular usando clases de Bootstrap -->
+            </div>
+        </div>
     </div>
-    <section class="additional-info">
-        <h2>Información adicional</h2>
-        <p>Eyeless Jack es conocido por su apariencia distintiva, que incluye una máscara negra sin ojos y un traje oscuro. Se dice que se mueve sigilosamente y ataca a sus víctimas durante la noche. La historia de Eyeless Jack ha sido objeto de muchas interpretaciones y teorías, y su origen exacto sigue siendo un misterio dentro de la comunidad de creepypastas.</p>
-        <p>A pesar de su naturaleza aterradora, Eyeless Jack ha ganado una base de fans leales que disfrutan de su historia y su estética única. La figura de Eyeless Jack ha sido utilizada en diversos medios, desde videojuegos hasta cómics, y sigue siendo una parte importante de la cultura de internet relacionada con el terror.</p>
+
+    <!-- sección de información adicional usando una tarjeta de Bootstrap -->
+    <section id="adicional" class="container mb-4">
+        <div class="card bg-dark text-danger">
+            <div class="card-body">
+                <h2 class="card-title">Información adicional</h2>
+                <p class="card-text">Eyeless Jack es conocido por su apariencia distintiva, que incluye una máscara
+                    negra sin ojos y un traje oscuro. Se dice que se mueve sigilosamente y ataca a sus víctimas durante
+                    la noche. La historia de Eyeless Jack ha sido objeto de muchas interpretaciones y teorías, y su
+                    origen exacto sigue siendo un misterio dentro de la comunidad de creepypastas.</p>
+                <p class="card-text">A pesar de su naturaleza aterradora, Eyeless Jack ha ganado una base de fans leales
+                    que disfrutan de su historia y su estética única. La figura de Eyeless Jack ha sido utilizada en
+                    diversos medios, desde videojuegos hasta cómics, y sigue siendo una parte importante de la cultura
+                    de internet relacionada con el terror.</p>
+            </div>
+        </div>
     </section>
+
+    <!-- Bootstrap JavaScript bundle (incluye Popper) para que funcionen componentes interactivos como el navbar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
