@@ -13,6 +13,10 @@
     <link rel="icono" type="image/jpg" sizes="32x32" href="/Img/EyelessJack_1.jpg">
     <link rel="icono" type="image/jpg" sizes="16x16" href="/Img/EyelessJack_2.jpg">
 
+    <!-- Bootstrap JavaScript bundle (incluye Popper) para que funcionen componentes interactivos como el navbar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -45,12 +49,15 @@
             </div>
             <!-- columna de texto central -->
             <div class="col-lg-6 col-md-8">
-                <div class="alert alert-danger alert-dismissible fade show"><!-- alerta de Bootstrap para advertencia -->
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button> <!-- botón para cerrar la alerta -->
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <!-- alerta de Bootstrap para advertencia -->
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <!-- botón para cerrar la alerta -->
                     <strong>Peligro!</strong> Historia de terror, no apta para personas sensibles.
                 </div>
                 <h1 class="display-4">Eyeless Jack</h1> <button class="bg-danger text-white p-3 mt-2"
-                    data-bs-toggle="collapse" data-bs-target="#demo">Advertencia</button><!-- botón de Bootstrap para mostrar/ocultar información adicional -->
+                    data-bs-toggle="collapse"
+                    data-bs-target="#demo">Advertencia</button><!-- botón de Bootstrap para mostrar/ocultar información adicional -->
                 <div id="demo" class="collapse bg-danger text-dark p-3 mt-2">
                     Le gusta comer órganos humanos!
                 </div>
@@ -63,11 +70,12 @@
                     Jack se ha convertido en un ícono del terror en línea y ha inspirado a muchos creadores de contenido
                     a explorar su historia y características únicas.</p>
                 <!-- un botón de Bootstrap para navegar dentro de la página -->
-                <a href="#adicional" class="btn btn-primary bg-danger text-white">Leer más</a>
+                <a href="#adicional" class="btn btn-primary bg-danger text-white">Ver galeria</a>
             </div>
             <!-- columna de imagen derecha -->
             <div class="col-lg-3 col-md-4 text-center mb-3">
-                <img src="../Img/EyelessJack_2.jpg" alt="Eyeless Jack right" class="img-fluid rounded rounded-circle"> <!-- imagen con bordes redondeados y forma circular usando clases de Bootstrap -->
+                <img src="../Img/EyelessJack_2.jpg" alt="Eyeless Jack right" class="img-fluid rounded rounded-circle">
+                <!-- imagen con bordes redondeados y forma circular usando clases de Bootstrap -->
             </div>
         </div>
     </div>
@@ -89,9 +97,99 @@
         </div>
     </section>
 
-    <!-- Bootstrap JavaScript bundle (incluye Popper) para que funcionen componentes interactivos como el navbar -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-..."
-        crossorigin="anonymous"></script>
+    <!-- Sección de galería con carrusel y notificación toast -->
+    <section class="container mb-4">
+        <div class="row align-items-center">
+            <!-- Columna izquierda con carrusel -->
+            <div class="col-lg-6 col-md-12">
+                <!-- Carrusel con indicadores y controles de navegación -->
+                <div id="carouselDemo" class="carousel slide" data-bs-ride="carousel">
+
+                    <!-- Indicadores de diapositivas para navegar entre imágenes -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselDemo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#carouselDemo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#carouselDemo" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- Contenedor de tarjeta para enmarcar el carrusel -->
+                    <div class="card bg-dark text-danger">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Galería de imágenes</h2>
+                            <!-- Deslizamiento de diapositivas con imágenes -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="../Img/carrucel_1.webp" alt="Supuesto avistamiento en Los Angeles" class="d-block w-100" style="width: 500px; height: 500px; margin: 0 auto;">
+                                    <div class="carousel-caption">
+                                        <h3>Los Angeles</h3>
+                                        <p>Supuesto avistamiento!</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../Img/carrucel_2.jpeg" alt="Desaparición en Chicago" class="d-block w-100" style="width: 500px; height: 500px; margin: 0 auto;">
+                                    <div class="carousel-caption">
+                                        <h3>Chicago</h3>
+                                        <p>Desaparece joven que se viste de Eyeless Jack</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../Img/carrucel_3.jpeg" alt="Hallazgo en Nueva York" class="d-block w-100" style="width: 500px; height: 500px; margin: 0 auto;">
+                                    <div class="carousel-caption">
+                                        <h3>Nueva York</h3>
+                                        <p>Se encontró la máscara en una escena del crimen</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Botones de navegación previa y siguiente para el carrusel -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDemo" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselDemo" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna derecha con botón y notificación toast -->
+            <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <!-- Botón para mostrar notificación toast -->
+                    <button type="button" class="btn btn-danger btn-lg" id="toastbtn">Mostrar Alerta</button>
+                    
+                    <!-- Contenedor de la notificación toast con encabezado y cuerpo -->
+                    <div class="toast mt-4" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header bg-danger text-white">
+                            <!-- Encabezado de la notificación -->
+                            <strong class="me-auto">Advertencia de Eyeless Jack</strong>
+                            <!-- Botón para cerrar la notificación -->
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+                        </div>
+                        <div class="toast-body bg-dark text-danger">
+                            <!-- Contenido de la notificación -->
+                            <p>Se han reportado avistamientos sospechosos en tu área. ¡Ten cuidado durante la noche!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script para manejar la funcionalidad del botón toast -->
+    <script>
+        document.getElementById("toastbtn").onclick = function() {
+            // Obtener todas las notificaciones toast del documento
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            // Convertir cada elemento toast a instancia de Bootstrap Toast
+            var toastList = toastElList.map(function(toastEl) {
+                return new bootstrap.Toast(toastEl)
+            })
+            // Mostrar todas las notificaciones toast
+            toastList.forEach(toast => toast.show()) 
+        }
+    </script>
 </body>
 
 </html>
